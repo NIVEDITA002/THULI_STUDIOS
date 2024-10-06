@@ -1,0 +1,18 @@
+// screens/SettingsScreen.tsx
+import React from 'react';
+import { View, Button, AsyncStorage } from 'react-native';
+
+const SettingsScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+    const logout = async () => {
+        await AsyncStorage.removeItem('token'); // Clear the token
+        navigation.navigate('Login'); // Navigate to Login screen
+    };
+
+    return (
+        <View>
+            <Button title="Logout" onPress={logout} />
+        </View>
+    );
+};
+
+export default SettingsScreen;
